@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beranda - RuteKita</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:'Poppins',sans-serif;background:#f3f4f6}
+
+.header{
+    background:linear-gradient(135deg,#6BB6D9,#4A90E2);
+    padding:20px;
+    color:white;
+}
+
+.top-tab{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+.top-tab span{opacity:0.6}
+.top-tab .active{
+    opacity:1;
+    position:relative;
+}
+.top-tab .active::after{
+    content:"";
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:100%;
+    height:3px;
+    background:white;
+    border-radius:5px;
+}
+
+.search-box{
+    border:1px solid #fff;
+    border-radius:15px;
+    padding:10px;
+    display:flex;
+    align-items:center;
+}
+.search-box input{
+    border:none;
+    background:transparent;
+    outline:none;
+    color:white;
+    width:100%;
+}
+
+.card-custom{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.package{
+    background:linear-gradient(135deg,#4A90E2,#2F6FA5);
+    color:white;
+}
+
+.carousel-indicators [data-bs-target]{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#ccc;
+    border: none;
+}
+.carousel-indicators .active{
+    background:#4A90E2;
+}
+
+.video-scroll{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+}
+.video-item{
+    min-width:160px;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.category button{
+    border-radius:20px;
+    margin-right:5px;
+}
+
+.list-card{
+    border-radius:15px;
+    padding:10px;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:white;
+    padding:10px;
+    box-shadow:0 -5px 20px rgba(0,0,0,0.1);
+}
+.nav-item{
+    text-decoration:none;
+    color:#777;
+}
+.nav-item.active{
+    color:#4A90E2;
+    font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<div class="container">
+
+<div class="top-tab">
+<span class="active">Beranda</span>
+<span>Vidio</span>
+</div>
+
+<div class="d-flex justify-content-between">
+<div>
+<small>Selamat Pagi,</small>
+<h6 id="namaUser" class="mb-0"></h6>
+<small><i class="bi bi-geo-alt"></i> Kec. Gedangan Sidoarjo</small>
+</div>
+
+<div class="d-flex gap-3">
+<i class="bi bi-bell fs-4"></i>
+</div>
+</div>
+
+<div class="search-box mt-3" onclick="goSearch()" style="cursor:pointer;">
+<i class="bi bi-search me-2"></i>
+<input type="text" placeholder="Cari destinasi wisata..." readonly>
+</div>
+
+<script>
+function goSearch(){
+    window.location.href = "pencarian.html";
+}
+</script>
+
+</div>
+</div>
+
+<div class="container mt-3 mb-5" style="padding-bottom:100px;">
+
+<div id="carouselExample" class="carousel slide mb-3" data-bs-ride="carousel">
+
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+</div>
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<div class="card card-custom package p-3">
+<small class="bg-light text-dark px-2 rounded">PAKET SPESIAL</small>
+<h5 class="mt-2">Paket Bali 3D2N</h5>
+<small>Hotel + Itinerary + Transport</small>
+<div class="d-flex justify-content-between mt-2">
+<span>230 orang sudah pesan</span>
+<a href="detail.html" class="btn btn-light btn-sm">Pesan →</a>
+</div>
+</div>
+</div>
+
+<div class="carousel-item">
+<div class="card card-custom package p-3">
+<small class="bg-light text-dark px-2 rounded">PAKET SPESIAL</small>
+<h5 class="mt-2">Paket Bali 3D2N</h5>
+<small>Hotel + Itinerary + Transport</small>
+<div class="d-flex justify-content-between mt-2">
+<span>230 orang sudah pesan</span>
+<a href="detail.html" class="btn btn-light btn-sm">Pesan →</a>
+</div>
+</div>
+</div>
+
+<div class="carousel-item">
+<div class="card card-custom package p-3">
+<small class="bg-light text-dark px-2 rounded">PAKET SPESIAL</small>
+<h5 class="mt-2">Paket Bali 3D2N</h5>
+<small>Hotel + Itinerary + Transport</small>
+<div class="d-flex justify-content-between mt-2">
+<span>230 orang sudah pesan</span>
+<a href="detail.html" class="btn btn-light btn-sm">Pesan →</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="card card-custom p-3 mb-3">
+<div class="row align-items-center text-center">
+
+<div class="col d-flex align-items-center justify-content-center">
+<img src="download.png" width="50">
+<div class="text-start ms-2">
+<small>RUPAY by RUTEKITA</small><br>
+<strong>Rp 1.700.000</strong><br>
+<small>Gratis isi Saldo</small>
+</div>
+</div>
+
+<div class="col border-start d-flex align-items-center justify-content-center">
+<img src="voucher.png" width="35" class="me-2">
+<div class="text-start">
+<small>Voucher</small><br>
+<strong>50+ Voucher</strong><br>
+<small>Voucher Diskon 50%</small>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+<h6>Vidio RuteKita</h6>
+<a href="#">Lihat Semua</a>
+</div>
+
+<div class="video-scroll mb-3">
+<div class="video-item"><img src="bromo 1.jpg" width="100%"></div>
+<div class="video-item"><img src="bromo 1.jpg" width="100%"></div>
+<div class="video-item"><img src="bromo 1.jpg" width="100%"></div>
+<div class="video-item"><img src="bromo 1.jpg" width="100%"></div>
+</div>
+
+<div class="category mb-3">
+<button class="btn btn-primary btn-sm">Semua</button>
+<button class="btn btn-outline-secondary btn-sm">Pantai</button>
+<button class="btn btn-outline-secondary btn-sm">Gunung</button>
+<button class="btn btn-outline-secondary btn-sm">Budaya</button>
+</div>
+
+<div class="d-flex justify-content-between">
+<h6>Destinasi Populer</h6>
+<a href="#">Lihat Semua</a>
+</div>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+<div class="card card-custom">
+<img src="bromo.jpg" style="width:100%;height:200px;object-fit:cover;">
+<div class="p-2">
+<strong>Gunung Bromo</strong>
+<p>⭐ 4.9 • 3,2 km</p>
+<a href="detail.html" class="btn btn-warning w-100">Lihat Detail</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-3">
+<div class="card card-custom">
+<img src="pantai kuta.jpg" style="width:100%;height:200px;object-fit:cover;">
+<div class="p-2">
+<strong>Pantai Kuta, Bali</strong>
+<p>⭐ 4.8 • 3,2 km</p>
+<a href="detail.html" class="btn btn-primary w-100">Lihat Detail</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-3">
+<div class="card card-custom">
+<img src="candi.jpg" style="width:100%;height:200px;object-fit:cover;">
+<div class="p-2">
+<strong>Candi Borobudur</strong>
+<p>⭐ 4.7 • 3,2 km</p>
+<a href="detail.html" class="btn btn-primary w-100">Lihat Detail</a>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="d-flex justify-content-between">
+<h6>Lokasi terdekat</h6>
+<a href="#">Lihat Semua</a>
+</div>
+
+<div class="list-card d-flex align-items-center mb-2">
+<img src="kenjeran park.jpg" width="80">
+<div class="ms-2">
+<strong>Kenjeran Park</strong>
+<p>⭐ 4.3 • 3,2 km</p>
+</div>
+<a href="detail.html" class="btn btn-primary ms-auto">Lihat Detail</a>
+</div>
+
+<div class="list-card d-flex align-items-center mb-2">
+<img src="kenjeran park.jpg" width="80">
+<div class="ms-2">
+<strong>Wisata kuliner Genteng</strong>
+<p>⭐ 4.5 • 1,8 km</p>
+</div>
+<a href="detail.html" class="btn btn-primary ms-auto">Lihat Detail</a>
+</div>
+
+<div class="list-card d-flex align-items-center mb-2">
+<img src="pantai ria.jpg" width="80">
+<div class="ms-2">
+<strong>Pantai Ria Kenjeran</strong>
+<p>⭐ 4.1 • 1,8 km</p>
+</div>
+<a href="detail.html" class="btn btn-primary ms-auto">Lihat Detail</a>
+</div>
+
+<div class="d-flex justify-content-between mt-3">
+<h6>Pilihan Penginapan</h6>
+<a href="#">Lihat Semua</a>
+</div>
+
+<div class="list-card d-flex align-items-center mb-2">
+<img src="bali.jpg" width="80">
+<div class="ms-2 flex-grow-1">
+<strong>Bali Sunset Guesthouse</strong>
+<p>Kuta, Bali</p>
+</div>
+<a href="detail.html" class="btn btn-primary">Lihat Detail</a>
+</div>
+
+<div class="list-card d-flex align-items-center mb-2">
+<img src="artotel.jpg" width="80">
+<div class="ms-2 flex-grow-1">
+<strong>ARTOTEL Cabin Bromo</strong>
+<p>Probolinggo, Bromo</p>
+</div>
+<a href="detail.html" class="btn btn-primary">Lihat Detail</a>
+</div>
+
+</div>
+
+<div class="bottom-nav">
+<div class="container d-flex justify-content-around text-center">
+
+<a href="beranda.html" class="nav-item active">
+<i class="bi bi-house"></i><br>Beranda
+</a>
+
+<a href="pesanan.html" class="nav-item">
+<i class="bi bi-box"></i><br>Pesanan
+</a>
+
+<a href="itinerary.html" class="nav-item">
+<i class="bi bi-calendar"></i><br>Itinerary
+</a>
+
+<a href="akunsayaa.html" class="nav-item">
+<i class="bi bi-person"></i><br>Saya
+</a>
+
+</div>
+</div>
+
+<script>
+let nama = localStorage.getItem("namaUser");
+
+if(!nama){
+window.location.href="login.html";
+}else{
+nama = nama.charAt(0).toUpperCase()+nama.slice(1);
+document.getElementById("namaUser").innerText = nama;
+}
+
+function logout(){
+localStorage.removeItem("namaUser");
+window.location.href="login.html";
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

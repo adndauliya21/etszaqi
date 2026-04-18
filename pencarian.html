@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pencarian - RuteKita</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background:#f3f4f6;
+    font-family:Poppins;
+}
+.box{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<script>
+
+let nama = localStorage.getItem("namaUser");
+
+if(!nama){
+window.location.href="login.html";
+}else{
+nama = nama.charAt(0).toUpperCase()+nama.slice(1);
+document.getElementById("namaUser").innerText = nama;
+}
+
+function logout(){
+localStorage.removeItem("namaUser");
+window.location.href="login.html";
+}
+
+</script>
+
+<div class="container mt-4">
+
+<div class="box">
+
+<h5>Cari Destinasi</h5>
+
+<div class="d-flex mb-3">
+<input type="text" id="searchInput" class="form-control" placeholder="Search Destinasi....">
+<button class="btn btn-primary ms-2" onclick="tambahData()">Cari</button>
+</div>
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>No</th>
+<th>Keyword</th>
+<th>Waktu</th>
+</tr>
+</thead>
+
+<tbody id="tabelData"></tbody>
+</table>
+
+<button class="btn btn-success w-100 mt-2" onclick="lanjutSearch()">
+Lanjutkan Search →
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let data = JSON.parse(localStorage.getItem("searchData")) || [];
+
+render();
+
+function tambahData(){
+
+let input = document.getElementById("searchInput").value;
+
+if(input === ""){
+alert("Isi dulu!");
+return;
+}
+
+let now = new Date();
+let waktu = now.toLocaleTimeString("id-ID",{hour:'2-digit',minute:'2-digit'});
+
+data.push({
+keyword: input,
+waktu: waktu
+});
+
+localStorage.setItem("searchData", JSON.stringify(data));
+
+render();
+
+}
+
+function render(){
+
+let table = document.getElementById("tabelData");
+table.innerHTML = "";
+
+data.forEach((item, index)=>{
+
+table.innerHTML += `
+<tr>
+<td>${index+1}</td>
+<td>${item.keyword}</td>
+<td>${item.waktu}</td>
+</tr>
+`;
+
+});
+
+}
+
+function lanjutSearch(){
+
+if(data.length === 0){
+alert("Belum ada pencarian!");
+return;
+}
+
+let terakhir = data[data.length-1].keyword;
+
+localStorage.setItem("keywordSearch", terakhir);
+
+window.location.href = "beranda.html";
+
+}
+
+</script>
+
+</body>
+</html>
